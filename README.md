@@ -87,7 +87,38 @@ Once the Docker container is running, you can access your Next.js application by
      
 
      
+# guidance of this crud application
+Firebase Configuration (firebaseConfig.js):
 
+This file contains the configuration for connecting to Firebase Firestore. It initializes Firebase and exports the Firestore database instance (db) for use in other parts of the application.
+Home Component (Home.js):
 
+This component represents the main page of the application.
+It contains:
+State variables (title, details, dueDate, todos, selectedTodo, isUpdateMode) managed using the useState hook.
+Functions for interacting with Firestore:
+addTodoToFirebase: Adds a new todo item to Firestore.
+fetchTodosFromFirestore: Fetches all todo items from Firestore.
+deleteTodoFromFirestore: Deletes a todo item from Firestore.
+The useEffect hook to fetch todos from Firestore when the component mounts.
+Event handler functions (handleSubmit, handleUpdateClick) for submitting the todo form and updating todo items.
+JSX markup for rendering the todo form and list of todo items.
+Functionality:
+Adding Todo:
+
+Users can input a title, details, and due date for a new todo item.
+Upon submitting the form, the handleSubmit function is called, which adds the todo item to Firestore using the addTodoToFirebase function.
+Fetching Todos:
+
+When the component mounts, the useEffect hook calls the fetchTodosFromFirestore function to fetch all todo items from Firestore.
+The fetched todos are stored in the todos state variable, which is used to render the list of todo items.
+Updating Todo:
+
+Clicking the "Update" button next to a todo item sets the selected todo's values to the form fields, enabling users to update the todo.
+After making changes and submitting the form, the handleSubmit function updates the todo item in Firestore using the updateDoc function.
+Deleting Todo:
+
+Clicking the "Delete" button next to a todo item deletes the todo item from Firestore using the deleteTodoFromFirestore function.
+Upon successful deletion, the todo item is removed from the list of todos displayed on the page.
 
 
